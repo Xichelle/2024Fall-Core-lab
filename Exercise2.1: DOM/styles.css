@@ -1,0 +1,90 @@
+/* General Body and Text Styles */
+body {
+  margin: 50px;
+  padding: 0;
+  background-image:url(../assets/IMG_5699.png);
+  background-size: cover;
+  /* background: linear-gradient(to bottom, black, white); /* Gradient background */
+  /* background-size: cover; */ 
+  height: 500vh; /* Scrollable height */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+  height: 500vh;
+}
+
+#text1,#text2{
+  color:whitesmoke;
+  text-align: start;
+  margin: 20px 0;
+  padding: 10px;
+  width: 80%; /* Make the text block narrower for readability */
+}
+
+/* Fixed Eye Bar */
+.fixed-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eye {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pupil {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  transition: transform 0.1s linear;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr); /* 10 columns */
+  grid-template-rows: repeat(10, 1fr); /* 20 rows */
+  gap: 40px; 
+  width: 80%;
+  max-width: 1200px; /* Optional: max width for responsiveness */
+  height: 100vh; /* Full viewport height */
+  
+}
+
+/* Rectangle Styling */
+.rectangle {
+  background-color: black; 
+  position: relative;
+  width: 100%;
+  height: 130%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+/* Hover Effect */
+.rectangle:hover {
+  background-color: rgb(255, 255, 143); 
+}
