@@ -1,0 +1,28 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden-text {
+    position: absolute;
+    color: rgb(248, 247, 247);
+    font-size: 12px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+}
+
+.image-gallery img {
+    width: 500px;
+    height: 500px;
+    object-fit:contain;
+    margin: 10px;
+}
