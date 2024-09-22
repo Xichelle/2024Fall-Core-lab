@@ -1,38 +1,92 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
-.container {
-  position: relative;
-  width: 500px;
-  height: 500px;
+.image-container {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: 400px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.image-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.5s ease, top 0.5s ease, left 0.5s ease;
+.image-link {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transition: all 0.3s ease;
+    z-index: 1;
+    /* The images will overlap in the center initially */
+    transform: translate(-50%, -50%);
 }
 
-.image-wrapper img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+.image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.image-wrapper:hover img {
-  transform: scale(1.2) translateY(-10px); /* 图片放大并上移 */
+.image-link:hover img {
+    transform: scale(1.2); /* Zoom the image when hovered */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Spread out the images when the container is hovered */
+.image-container:hover .image-link:nth-child(1) {
+    transform: translate(-250%, -250%);
+}
+.image-container:hover .image-link:nth-child(2) {
+    transform: translate(-100%, -250%);
+}
+.image-container:hover .image-link:nth-child(3) {
+    transform: translate(0, -250%);
+}
+.image-container:hover .image-link:nth-child(4) {
+    transform: translate(100%, -250%);
+}
+.image-container:hover .image-link:nth-child(5) {
+    transform: translate(250%, -250%);
+}
+
+@media (max-width: 768px) {
+    .image-link {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) 
+    .image-link {
+        width: 100px;
+        height: 100px;
+}
+
+    /* Adjust spreading for small screens */
+    .image-container:hover .image-link:nth-child(1) {
+        transform: translate(-150%, -150%);
+    }
+    .image-container:hover .image-link:nth-child(2) {
+        transform: translate(-50%, -150%);
+    }
+    .image-container:hover .image-link:nth-child(3) {
+        transform: translate(0, -150%);
+    }
+    .image-container:hover .image-link:nth-child(4) {
+        transform: translate(50%, -150%);
+    }
+    .image-container:hover .image-link:nth-child(5) {
+        transform: translate(150%, -150%);
 }
