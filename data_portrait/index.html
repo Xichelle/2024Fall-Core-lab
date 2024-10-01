@@ -3,27 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Hover Effects</title>
+    <title>Data Portrait</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="image-container">
-        <a href="https://website1.com" class="image-link">
+    <!-- <div class="image-container">
+        <a href="insPost.html" class="image-link">
             <img src="../assets/body.PNG" alt="Image 1">
         </a>
-        <a href="https://website2.com" class="image-link">
+        <a href="wechatPost.html" class="image-link">
             <img src="../assets/muscle.PNG" alt="Image 2">
         </a>
-        <a href="https://website3.com" class="image-link">
+        <a href="insStory.html" class="image-link">
             <img src="../assets/skeleton.PNG" alt="Image 3">
         </a>
-        <a href="https://website4.com" class="image-link">
+        <a href="dream.html" class="image-link">
             <img src="../assets/brain.PNG" alt="Image 4">
         </a>
-        <a href="https://website5.com" class="image-link">
+        <a href="verification.html" target="_blank" class="image-link">
             <img src="../assets/soul.PNG" alt="Image 5">
         </a>
+    </div> -->
+
+    <!-- try to get the pop up function -->
+    <div class="image-container">
+            <img src="../assets/body.PNG" alt="Image 1" class="image-link" onclick="openPopup('HowYouWouldSeeMe.html', 'popup1')">
+        
+        
+            <img src="../assets/muscle.PNG" alt="Image 2" class="image-link" onclick="openPopup('HowYouWouldKnowMe.html', 'popup2')">
+       
+        
+            <img src="../assets/skeleton.PNG" alt="Image 3" class="image-link" onclick="openPopup('HowYouWouldHearMe.html', 'popup3')">
+        
+       
+            <img src="../assets/brain.PNG" alt="Image 4"  class="image-link" onclick="openPopup('HowYouWouldReadMe.html', 'popup4')">
+       
+        
+            <img src="../assets/soul.PNG" alt="Image 5" class="image-link" onclick="openPopup('verification.html', 'popup5')">
+      
+    </div>
+
+    <div class="content">
+        <h1>行走的鱼</h1><br>
+        <p>The fish that walks on the ground</p>
     </div>
 
     <script src="script.js"></script>

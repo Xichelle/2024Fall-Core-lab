@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How would you see me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            margin:0;
+        }
+
+        .post-container {
+            width: 500px;
+            /* background-color: #fff; */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .image-slider {
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+
+        .image-slider::-webkit-scrollbar {
+            display: none; /* Hide scrollbar */
+        }
+
+        .image-slide {
+            min-width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        .image-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit:contain;
+        }
+
+        .like-section {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .like-button {
+            cursor: pointer;
+            font-size: 24px;
+            color: #aaa;
+            transition: color 0.3s ease;
+        }
+
+        .like-button.liked {
+            color: red;
+        }
+        .video{
+            position: fixed;
+            top: 28%;
+            left: 25%;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="video">
+        <video width="640" height="360" autoplay muted loop>
+            <source src="../video/IMG_0258.mov" type="video/mp4">
+        </video>
+    </div>
+    <div class="post-container">
+        <!-- Scrollable Image Slider -->
+        <div class="image-slider">
+            <div class="image-slide">
+                <img src="../Posts_files/301065220_1711400732558029_637474457270450479_n_17970056368740692.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/301203790_127833119763886_3955980584328648446_n_17965707820866618.jpg" alt="Image 2">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/301306650_586158339888105_4212435720480981784_n_18180331003227209.jpg" alt="Image 3">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/301773280_1110709096527791_1985490756963188911_n_17932375652512507.jpg" alt="Image 4">
+            </div>
+        </div>
+        
+        <!-- Like Button and Info Section -->
+        <div class="like-section">
+            <div class="like-button">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div>
+                <p>99+ likes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-container">
+        <!-- Scrollable Image Slider -->
+        <div class="image-slider">
+            <div class="image-slide">
+                <img src="../Posts_files/313212115_165932572784120_4390523935182476658_n_18229793470152490.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/313348929_688845752339033_2354159409884706496_n_17952896015236426.jpg" alt="Image 2">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/313364767_427900532848924_5918395620243598211_n_17907230732661748.jpg" alt="Image 3">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/313390817_3369949143285647_8221161834313160525_n_17999366131485330.jpg" alt="Image 4">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/313398285_662118782018728_5268511013873951832_n_17928338930595639.jpg" alt="Image 5">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/313480785_195758132912702_6333080176831916438_n_18078903220314521.jpg" alt="Image 6">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/313480786_690958512645856_8362025084079318629_n_18003665521503151.jpg" alt="Image 7">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/313734132_652375249881091_8537870222371663629_n_17970917242761810.jpg" alt="Image 8">
+            </div>
+        </div>
+        
+        <!-- Like Button and Info Section -->
+        <div class="like-section">
+            <div class="like-button">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div>
+                <p>99+ likes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-container">
+        <!-- Scrollable Image Slider -->
+        <div class="image-slider">
+            <div class="image-slide">
+                <img src="../Posts_files/336224119_1888109218230381_2701999166881676108_n_18263367442130741.jpg" alt="Image 1">
+            </div>
+        </div>
+        
+        <!-- Like Button and Info Section -->
+        <div class="like-section">
+            <div class="like-button">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div>
+                <p>99+ likes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-container">
+        <!-- Scrollable Image Slider -->
+        <div class="image-slider">
+            <div class="image-slide">
+                <img src="../Posts_files/340187373_1580147732497124_7032802822137165995_n_17962091786246933.jpg" alt="Image 1">
+            </div>
+        </div>
+        
+        <!-- Like Button and Info Section -->
+        <div class="like-section">
+            <div class="like-button">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div>
+                <p>99+ likes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-container">
+        <!-- Scrollable Image Slider -->
+        <div class="image-slider">
+            <div class="image-slide">
+                <img src="../Posts_files/342727117_1244522312838530_1036892026589737576_n_17937859886643389.jpg" alt="Image 1">
+            </div>
+        </div>
+        
+        <!-- Like Button and Info Section -->
+        <div class="like-section">
+            <div class="like-button">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div>
+                <p>99+ likes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-container">
+        <!-- Scrollable Image Slider -->
+        <div class="image-slider">
+            <div class="image-slide">
+                <img src="../Posts_files/350241387_933262821063270_6773004536195811782_n_18271306792121032.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/350383063_1452911575523532_4712817441788390046_n_18055258507414705.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/350438504_768261618279885_2272272874009837926_n_17972720183360152.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/350447918_121217837625422_4209258441449517570_n_18000509944863070.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/350542883_644111001100601_1491509133300770046_n_18260972059158934.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/355405254_1455357231923650_2748469304216928415_n_17914255712681383.jpg" alt="Image 1">
+            </div>
+        </div>
+        
+        <!-- Like Button and Info Section -->
+        <div class="like-section">
+            <div class="like-button">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div>
+                <p>99+ likes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-container">
+        <!-- Scrollable Image Slider -->
+        <div class="image-slider">
+            <div class="image-slide">
+                <img src="../Posts_files/355635415_997657074755674_6872455620919859219_n_18057208675419068.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/355652206_607224358056797_6798374938233564726_n_18059818540412029.jpg" alt="Image 1">
+            </div>
+            <div class="image-slide">
+                <img src="../Posts_files/355693005_1298668367398506_292630396887832073_n_17860010135968759.jpg" alt="Image 1">
+            </div>
+        </div>
+        
+        <!-- Like Button and Info Section -->
+        <div class="like-section">
+            <div class="like-button">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div>
+                <p>99+ likes</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Select all like buttons
+        const likeButtons = document.querySelectorAll('.like-button');
+
+        // Add click event listener to each like button
+        likeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('liked'); // Toggle the 'liked' class
+            });
+        });
+    </script>
+</body>
+</html>

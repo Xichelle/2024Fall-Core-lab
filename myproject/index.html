@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Control for CSS</title>
+    <style>
+        .shape {
+            position: absolute;
+            top:30%;
+            left:40%;
+            width: 150px;
+            height: 150px;
+            background-color: rgb(100, 100, 100);
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            line-height: 150px;
+            transform: skew(0deg, 0deg);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="controls">
+    <!-- Font Size Slider -->
+    <label for="fontSize">Font Size</label>
+    <input type="range" id="fontSize" min="10" max="50" value="16">
+
+    <!-- RGB Color Sliders -->
+    <label for="red">Red</label>
+    <input type="range" id="red" min="0" max="255" value="100">
+    <label for="green">Green</label>
+    <input type="range" id="green" min="0" max="255" value="100">
+    <label for="blue">Blue</label>
+    <input type="range" id="blue" min="0" max="255" value="100">
+
+    <!-- Skew X and Y -->
+    <label for="skewX">Skew X</label>
+    <input type="range" id="skewX" min="-50" max="50" value="0">
+    <label for="skewY">Skew Y</label>
+    <input type="range" id="skewY" min="-50" max="50" value="0">
+</div>
+
+<div class="shape" id="shape">Shape</div>
+
+<script>
+    const shape = document.getElementById('shape');
+
+    // Select the sliders
+    const fontSizeSlider = document.getElementById('fontSize');
+    const redSlider = document.getElementById('red');
+    const greenSlider = document.getElementById('green');
+    const blueSlider = document.getElementById('blue');
+    const skewXSlider = document.getElementById('skewX');
+    const skewYSlider = document.getElementById('skewY');
+
+    // Update shape properties
+    function updateShape() {
+        // Get slider values
+        const fontSize = fontSizeSlider.value + 'px';
+        const red = redSlider.value;
+        const green = greenSlider.value;
+        const blue = blueSlider.value;
+        const skewX = skewXSlider.value + 'deg';
+        const skewY = skewYSlider.value + 'deg';
+
+        // Update CSS styles
+        shape.style.fontSize = fontSize;
+        shape.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        shape.style.transform = `skew(${skewX}, ${skewY})`;
+    }
+
+    // Add event listeners to sliders
+    fontSizeSlider.addEventListener('input', updateShape);
+    redSlider.addEventListener('input', updateShape);
+    greenSlider.addEventListener('input', updateShape);
+    blueSlider.addEventListener('input', updateShape);
+    skewXSlider.addEventListener('input', updateShape);
+    skewYSlider.addEventListener('input', updateShape);
+
+    // Initialize shape with current slider values
+    updateShape();
+</script>
+
+</body>
+</html>

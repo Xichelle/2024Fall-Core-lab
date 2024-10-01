@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please verify yourself</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .verification-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-box">
+        <h2>Verification Required</h2>
+        <p>Please enter the correct password to proceed.</p>
+        <form id="verificationForm">
+            <input type="text" id="password" placeholder="Enter the code">
+            <button type="submit">Verify</button>
+        </form>
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script>
+        document.getElementById('verificationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // User's correct birthday (or verification code). You can replace this with your actual validation logic.
+            const correctPassword = '332841'; 
+            const enteredPassword = document.getElementById('password').value;
+
+            if (enteredPassword === correctPassword) {
+                // Redirect to the next website
+                window.location.href ='Shh.html'; // Change this to the correct target URL
+            } else {
+                // Show error message
+                document.getElementById('errorMessage').textContent = 'Incorrect password. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How would you hear me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #album-cover {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .ear{
+            position: absolute;
+            top: 10%;
+            left:10%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="ear">
+        <video  width="160" height="90" autoplay muted loop>
+            <source src="../video/IMG_0260.mov" type="video/mp4">
+        </video>
+        <video  width="160" height="90" autoplay muted loop>
+            <source src="../video/IMG_0260.mov" type="video/mp4">
+        </video>
+        <video  width="160" height="90" autoplay muted loop>
+            <source src="../video/IMG_0260.mov" type="video/mp4">
+        </video>
+        <video  width="160" height="90" autoplay muted loop>
+            <source src="../video/IMG_0260.mov" type="video/mp4">
+        </video>
+        <video  width="160" height="90" autoplay muted loop>
+            <source src="../video/IMG_0260.mov" type="video/mp4">
+        </video>
+        <video  width="160" height="90" autoplay muted loop>
+            <source src="../video/IMG_0260.mov" type="video/mp4">
+        </video>
+    </div>
+    <div id="song-info">
+        <h2 id="song-title">Song Title</h2>
+        <h3 id="song-artist">Artist Name</h3>
+    </div>
+    
+    <audio id="audio" controls hidden>
+        Your browser does not support the audio element.
+    </audio>
+
+    <div>
+        <img id="album-cover" src="" alt="Album Cover">
+    </div>
+    
+    <div class="controls">
+        <button id="play-pause-btn">Play</button>
+        <button id="next-btn">Next</button>
+    </div>
+
+    <script>
+        const songs = [
+            { 
+                title: "Young and Tasteless(Instrumental)", 
+                artist: "Feezy", 
+                url: "../music/Young_and_Tasteless(Instrumental).mp3",
+                cover: "../music/1.jpg" 
+            }, 
+            { 
+                title: "氧气", 
+                artist: "郝蕾", 
+                url: "../music/氧气.mp3",
+                cover: "../music/2.jpg" 
+            }, 
+            { 
+                title: "浴室(live)", 
+                artist: "巫堵", 
+                url: "../music/浴室.mp3",
+                cover: "../music/3.jpg" 
+            }, 
+            { 
+                title: "解决", 
+                artist: "海底时光机", 
+                url: "../music/解决.mp3",
+                cover: "../music/4.jpg" 
+            }, 
+            { 
+                title: "迷恋", 
+                artist: "梅卡德尔", 
+                url: "../music/迷恋.mp3",
+                cover: "../music/5.jpg" 
+            }
+        ];
+
+        let currentSongIndex = 0;
+        const audio = document.getElementById("audio");
+        const playPauseBtn = document.getElementById("play-pause-btn");
+        const nextBtn = document.getElementById("next-btn");
+        const songTitle = document.getElementById("song-title");
+        const songArtist = document.getElementById("song-artist");
+        const albumCover = document.getElementById("album-cover");
+
+        // Load the first song
+        loadSong(currentSongIndex);
+
+        function loadSong(index) {
+            const song = songs[index];
+            audio.src = song.url;
+            songTitle.textContent = song.title;
+            songArtist.textContent = song.artist;
+            albumCover.src = song.cover; // Update the album cover
+        }
+
+        function playSong() {
+            audio.play();
+            playPauseBtn.textContent = "Pause";
+        }
+
+        function pauseSong() {
+            audio.pause();
+            playPauseBtn.textContent = "Play";
+        }
+
+        playPauseBtn.addEventListener("click", () => {
+            if (audio.paused) {
+                playSong();
+            } else {
+                pauseSong();
+            }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentSongIndex = (currentSongIndex + 1) % songs.length; // Loop to start
+            loadSong(currentSongIndex);
+            playSong(); // Automatically play the next song
+        });
+    </script>
+</body>
+</html>
