@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #87CEEB; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sky {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #87CEEB;
+}
+
+.field {
+    position: relative;
+    width: 600px;
+    height: 200px;
+    background-color: #82cd54;
+    border-radius: 20px;
+    border: 2px solid #3b4c2f;
+    overflow: hidden;
+}
+
+.fence {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    background-color: #8B4513; 
+    border: 2px solid #654321;
+    transform: translateX(-50%);
+}
+
+.sheep {
+    position: absolute;
+    bottom: 20px;
+    right: -80px; /* Start off-screen */
+    width: 80px;
+    height: 50px;
+    background-color: white; /* Sheep body */
+    border-radius: 40px;
+    border: 2px solid black;
+}
+
+.sheep::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: black; /* Sheep head */
+    border-radius: 50%;
+    top: 10px;
+    left: -25px;
+}
+
+.sheep::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 30px;
+    background-color: black; /* Sheep's Tail */
+    top: 5px;
+    right: -15px;
+    border-radius: 50%;
+}
+
+.jump {
+    animation: jump 2s ease-in-out forwards;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-300px) translateY(-120px); /* Arc over the fence */
+    }
+    100% {
+        transform: translateX(-600px) translateY(0); 
+    }
+}
+
+.counter {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
