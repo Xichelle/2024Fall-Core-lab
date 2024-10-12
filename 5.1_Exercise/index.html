@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract Geometric Poster</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #111;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        svg {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Animation for movement, rotation, and scaling */
+        @keyframes moveAnimation {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(500px, 0);
+            }
+        }
+
+        @keyframes rotateAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes scaleAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.5);
+            }
+        }
+
+        @keyframes bounceAnimation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-150px);
+            }
+        }
+
+        /* Shape animation classes */
+        .move {
+            animation: moveAnimation 10s infinite linear;
+        }
+
+        .rotate {
+            animation: rotateAnimation 8s infinite linear;
+        }
+
+        .scale {
+            animation: scaleAnimation 6s infinite alternate;
+        }
+
+        .bounce {
+            animation: bounceAnimation 4s infinite ease-in-out;
+        }
+
+        /* Fade-in effect for text */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInAnimation 3s forwards ease-in-out;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Reduced noise intensity for texts */
+        .with-mild-noise {
+            filter: url(#mildNoiseEffect);
+        }
+
+        /* Regular noise intensity */
+        .with-noise {
+            filter: url(#noiseEffect);
+        }
+
+    </style>
+</head>
+<body>
+
+<svg id="poster"></svg>
+
+<!-- D3.js to append shapes dynamically -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+    const svg = d3.select("#poster");
+
+    // Noise Effect Definitions
+    svg.append("defs").html(`
+        <!-- Stronger noise for shapes -->
+        <filter id="noiseEffect" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="1" seed="1" stitchTiles="stitch" result="particle"></feTurbulence>
+            <feDisplacementMap scale="20" in="SourceGraphic" in2="particle" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+        <!-- Milder noise for texts -->
+        <filter id="mildNoiseEffect" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.2" numOctaves="1" seed="1" stitchTiles="stitch" result="particle"></feTurbulence>
+            <feDisplacementMap scale="5" in="SourceGraphic" in2="particle" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+    `);
+
+    // Function to generate a random color
+    function getRandomColor() {
+        return 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
+    }
+
+    // Data for creating random shapes
+    const shapesData = [
+        { type: 'circle', cx: 200, cy: 200, r: 80, class: 'rotate' },
+        { type: 'rect', x: 400, y: 100, width: 100, height: 100, class: 'move' },
+        { type: 'ellipse', cx: 600, cy: 400, rx: 50, ry: 80, class: 'scale' },
+        { type: 'polygon', points: '300,300 350,450 250,450', class: 'rotate' },
+        { type: 'polygon', points: '100,500 200,600 300,500 200,400', class: 'scale' },
+        { type: 'circle', cx: 400, cy: 300, r: 60, class: 'rotate' },
+        { type: 'rect', x: 200, y: 400, width: 80, height: 80, class: 'move' },
+        { type: 'ellipse', cx: 500, cy: 100, rx: 40, ry: 60, class: 'scale' }
+    ];
+
+    // Function to create shapes dynamically with noise filter
+    shapesData.forEach(shape => {
+        if (shape.type === 'circle') {
+            svg.append('circle')
+                .attr('cx', shape.cx)
+                .attr('cy', shape.cy)
+                .attr('r', shape.r)
+                .attr('fill', getRandomColor())
+                .attr('class', shape.class + " with-noise");
+        } else if (shape.type === 'rect') {
+            svg.append('rect')
+                .attr('x', shape.x)
+                .attr('y', shape.y)
+                .attr('width', shape.width)
+                .attr('height', shape.height)
+                .attr('fill', getRandomColor())
+                .attr('class', shape.class + " with-noise");
+        } else if (shape.type === 'ellipse') {
+            svg.append('ellipse')
+                .attr('cx', shape.cx)
+                .attr('cy', shape.cy)
+                .attr('rx', shape.rx)
+                .attr('ry', shape.ry)
+                .attr('fill', getRandomColor())
+                .attr('class', shape.class + " with-noise");
+        } else if (shape.type === 'polygon') {
+            svg.append('polygon')
+                .attr('points', shape.points)
+                .attr('fill', getRandomColor())
+                .attr('class', shape.class + " with-noise");
+        }
+    });
+
+    // Add more stars with noise filter
+    for (let i = 0; i < 10; i++) {
+        svg.append("polygon")
+            .attr("points", "50,50 60,80 90,80 65,100 75,130 50,110 25,130 35,100 10,80 40,80")
+            .attr("fill", getRandomColor())
+            .attr("x", Math.random() * 800)
+            .attr("y", Math.random() * 600)
+            .attr("class", "rotate with-noise");
+    }
+
+    // Add a rotating star to a shape
+    svg.append("polygon")
+        .attr("points", "50,50 60,80 90,80 65,100 75,130 50,110 25,130 35,100 10,80 40,80")
+        .attr("fill", getRandomColor())
+        .attr("x", 250)
+        .attr("y", 250)
+        .attr("class", "rotate with-noise");
+
+    // Add a bouncing star from the right side (set using x and y)
+    svg.append("polygon")
+        .attr("points", "50,50 60,80 90,80 65,100 75,130 50,110 25,130 35,100 10,80 40,80")
+        .attr("fill", getRandomColor())
+        .attr("x", 750)  // Position it near the right edge
+        .attr("y", 500)  // Start near the bottom
+        .attr("class", "bounce with-noise");
+
+    // Text with fade-in effect and milder noise
+    svg.append("text")
+        .attr("x", 150)
+        .attr("y", 250)
+        .attr("font-size", 40)
+        .attr("fill", "white")
+        .attr("font-weight", "bold")
+        .attr("class", "fade-in with-mild-noise")
+        .text("Abstract Motion");
+
+    svg.append("text")
+        .attr("x", 180)
+        .attr("y", 280)
+        .attr("font-size", 18)
+        .attr("fill", "#ddd")
+        .attr("class", "fade-in with-mild-noise")
+        .attr("style", "animation-delay: 1s;")
+        .text("Shapes, color, and movement.");
+
+    svg.append("text")
+        .attr("x", 180)
+        .attr("y", 300)
+        .attr("font-size", 18)
+        .attr("fill", "#ddd")
+        .attr("class", "fade-in with-mild-noise")
+        .attr("style", "animation-delay: 2s;")
+        .text("A visual symphony.");
+
+    svg.append("text")
+        .attr("x", 180)
+        .attr("y", 320)
+        .attr("font-size", 18)
+        .attr("fill", "#ddd")
+        .attr("class", "fade-in with-mild-noise")
+        .attr("style", "animation-delay: 3s;")
+        .text("Geometry and animation.");
+
+</script>
+
+</body>
+</html>

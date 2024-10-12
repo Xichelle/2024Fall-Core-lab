@@ -1,0 +1,14 @@
+
+/* Styling for the image popup */
+.hover-image {
+    position: absolute;
+    display: none;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+  }
+  
+  svg {
+    border: 1px dotted red;  /* Add dotted red border to the SVG */
+  }
+  
